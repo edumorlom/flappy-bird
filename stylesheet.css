@@ -1,0 +1,20 @@
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.pipe {
+    position: absolute;
+}
+
+.sky {
+    background: skyblue;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#bird {
+    position: absolute;
+    left: 25%;
+}
