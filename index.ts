@@ -6,9 +6,13 @@ import Config from './Config.js';
 
 type positionType = Pipe | null;
 
+// The total score the of the player.
+// The score is incremented every movement the bird makes forward.
 let score = 0;
 const scoreHTMLElement = document.getElementById('score');
 
+// The position of the bird in the X axis, in percent.
+// 50% would signify the middle of the screen.
 const birdXAxisInPct = (Config.birdPositionOnGrid / Config.totalPlaces) * 100;
 const bird = new Bird(birdXAxisInPct);
 
@@ -16,7 +20,7 @@ const bird = new Bird(birdXAxisInPct);
 // Each place starts off empty spaces, but is then filled as the game goes on.
 const map: positionType[] = new Array(Config.totalPlaces);
 
-// The sky element in the dom.
+// The sky element in the DOM.
 const skyHTMLElement = document.getElementsByClassName('sky')[0];
 
 // The width of the pipe in percent. 100% is the entire screen.
@@ -41,6 +45,10 @@ const isGameOn = (): boolean => {
   // Has the bird collided? Is the pipe on top or bottom of screen?
   let birdCollision = false;
 
+  // The bird has collided if when the bird and the pipe
+  // are in the same xAxis position, the bird is not within the
+  // pipe boundaries in the yAxis.
+  // yAxis = altitude
   if (position.topOrBottom === 'top') {
     birdCollision = bird.altitude < position.height;
   } else {
@@ -51,8 +59,17 @@ const isGameOn = (): boolean => {
 };
 
 setInterval(() => {
+  // Reset everything inside the sky DOM element.
+  // This includes getting rid of the bird.
+  // It will be re-added later on.
   skyHTMLElement.innerHTML = '';
+
+  // For every position in the map
+  // if there is a pipe, draw the pipe.
   map.forEach((position, index) => {
+    // Only draw the pipe if the position != null,
+    // null === empty space
+    // otherwise, it means pipe
     if (position !== null) {
       const pipeHTMLElement = position.HTMLElement;
       const xAxisInPct = (index / Config.totalPlaces) * 100;
@@ -61,23 +78,26 @@ setInterval(() => {
       skyHTMLElement.appendChild(pipeHTMLElement);
     }
   });
+  // Re-draw the bird.
   skyHTMLElement.appendChild(bird.HTMLElement);
 }, 1);
 
 setInterval(() => {
   // Decides whether to insert a pipe or an empty space.
-  const emptyOrPipe = Math.random() >= (Config.pipeProbabilityInPct / 100);
+  // insertPipe === true, this position will contain a pipe.
+  const insertPipe = Math.random() >= (Config.pipeProbabilityInPct / 100);
 
-  let space = null;
+  // There can either be an empty space of a pipe.
+  let position = null;
 
-  // If emptyOrPipe, create a new Pipe, otherwise it's an empty space.
-  if (emptyOrPipe) {
-    space = new Pipe(pipeWidthInPct, Config.maxPipeHeightInPct)
+  // If insertPipe, create a new Pipe, otherwise it's an empty space.
+  if (insertPipe) {
+    position = new Pipe(pipeWidthInPct, Config.maxPipeHeightInPct)
   }
 
   // Place the new space to the map and get rid of index 0.
   // This will create an effect of moving forward.
-  map.push(space);
+  map.push(position);
   map.shift();
 
   // Every iteration, add 1 to the score.
@@ -89,8 +109,7 @@ setInterval(() => {
   }
 
   // If bird has died, display message.
-  const gameOver = !isGameOn();
-  if (gameOver) {
+  if (!isGameOn()) {
     alert(`You have died! Your score is ${score}`);
     location.reload();
   }
