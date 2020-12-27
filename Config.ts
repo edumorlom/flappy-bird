@@ -1,10 +1,10 @@
 type ConfigType = {
-    'totalPlaces': number,
-    'birdPositionOnGrid': number,
-    'startSpeed': number,
-    'pipeProbabilityInPct': number,
-    'maxPipeHeightInPct': number
-    'speedUpEveryXms': number,
+   'totalPlaces': number,
+   'birdPositionOnGrid': number,
+   'startSpeed': number,
+   'pipeProbabilityInPct': number,
+   'maxPipeHeightInPct': number
+   'speedUpEveryXms': number,
 }
 
 const Config: ConfigType = {
