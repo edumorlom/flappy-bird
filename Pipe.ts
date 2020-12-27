@@ -1,7 +1,10 @@
 /* eslint-disable require-jsdoc */
 export default class Pipe {
-    height = 0
+    // The height of the number is passed when the object is generated.
+    height: number;
+    // Randomness will decide whether the pipe will show on top or bottom.
     topOrBottom = Math.random() >= 0.5 ? 'top' : 'bottom'
+    // Create a new HTML element for the pipe.
     HTMLElement: HTMLElement = document.createElement('div')
 
     constructor(width: number, maxHeight: number) {

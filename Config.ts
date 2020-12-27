@@ -5,6 +5,8 @@ type ConfigType = {
    'pipeProbabilityInPct': number,
    'maxPipeHeightInPct': number
    'speedUpEveryXms': number,
+   'flyUpMs': number,
+   'birdImage': string
 }
 
 const Config: ConfigType = {
@@ -20,9 +22,14 @@ const Config: ConfigType = {
   'startSpeed': 100,
   // Probability of a pipe being generated for a given place in the grid.
   'pipeProbabilityInPct': 60,
+  // The maximum height a pipe can be.
   'maxPipeHeightInPct': 49,
   // Every X ms, the speed decreases by 1, making it faster.
   'speedUpEveryXms': 500,
+  // The amount of time the bird will fly up, in ms.
+  'flyUpMs': 250,
+  // The path of the bird's image.
+  'birdImage': './resources/bird.png'
 };
 
 export default Config;
