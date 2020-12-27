@@ -1,0 +1,29 @@
+{
+  "name": "flappy-bird",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edumorlom/flappy-bird.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edumorlom/flappy-bird/issues"
+  },
+  "homepage": "https://github.com/edumorlom/flappy-bird#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.16.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
