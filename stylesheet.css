@@ -1,0 +1,47 @@
+body {
+    margin: 0px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.single-pipe {
+    background-color: darkslategray;
+    position: absolute;
+    box-shadow: 0 0 2px;
+}
+
+.top {
+    top: 0px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.bottom {
+    bottom: 0px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+}
+
+.sky {
+    background: skyblue;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#score {
+    color: white;
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    z-index: 1;
+}
+
+#bird {
+    max-width: 100px;
+    width: 3%;
+    position: absolute;
+    z-index: 1;
+}
