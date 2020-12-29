@@ -15,7 +15,7 @@ You can play the game [here](https://flappybird.edumorales.dev/)
 2. Install TypeScript globally: `sudo npm install -g typescript`.
 3. Generate JavaScript files: `tsc --module esnext  --watch *.ts`.
 
-## How to build the static files
+## How to Build
 
 1. Install [npm](https://www.npmjs.com/)\.
 2. Run `npm install` inside the `flappy-bird/` directory.

@@ -1,5 +1,3 @@
-// USE `tsc --module esnext  --watch *.ts`
-
 import Bird from './Bird.js';
 import Pipe from './Pipe.js';
 import Config from './Config.js';
