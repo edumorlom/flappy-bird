@@ -1,4 +1,4 @@
-import Config from "./Config";
+import Config from "./Config.js";
 
 /* eslint-disable require-jsdoc */
 export default class Bird {
