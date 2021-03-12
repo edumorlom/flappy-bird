@@ -78,7 +78,7 @@ setInterval(() => {
    });
    // Re-draw the bird.
    skyHTMLElement.appendChild(bird.HTMLElement);
-}, 1);
+}, 0);
 
 setInterval(() => {
    // Decides whether to insert a pipe or an empty space.
@@ -108,12 +108,19 @@ setInterval(() => {
 
    // If bird has died, display message.
    if (!isGameOn()) {
-      alert(`You have died! Your score is ${score}`);
-      location.reload();
+      setTimeout( () => {
+         alert(`You have died! Your score is ${score}`);
+         location.reload();
+      });
    }
-}, Config.startSpeed);
+}, Config.speed);
 
 // Every time the user presses a key, the bird flies up.
 document.addEventListener('keypress', () => {
+   bird.flyUp();
+});
+
+// Every time the user clicks on the mouse, the bird flies up.
+document.addEventListener('click', () => {
    bird.flyUp();
 });

@@ -3,6 +3,7 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 
 .single-pipe {
@@ -41,7 +42,7 @@ body {
 
 #bird {
     max-width: 100px;
-    width: 3%;
+    width: 45px;
     position: absolute;
     z-index: 1;
 }
